@@ -167,7 +167,7 @@ story:[
 {date:"AUG 16 2025",title:"A Special Moment",text:"A meet with your mother.\n  The moment I knew for sure: you were not just a part of my life, you were my forever."}
 ],
   /* photos: put image links or file names, e.g. {src:"photos/us1.jpg",cap:"Our first trip"} — leave src empty for a placeholder */
-photos:[{src:"pic5.jpg",cap:"Our first day"},{src:"pic3.jpg",cap:"Us, always"},{src:"pic6.jpg",cap:"My favourite smile"},{src:"pic1.jpg",cap:"Sweet memories"},{src:"pic2.jpg",cap:"Kovakari"},{src:"pic4.jpg",cap:"Gundu Papa"}],  letter:"My dearest Gowsi Papa,\n\nFrom the moment you came into my life, everything became softer, brighter and more beautiful. You are my calm, my joy and my favourite person.\n\nOn your birthday I want you to know that I am endlessly grateful for you. Thank you for loving me exactly as I am.\n\nForever yours 💚",
+photos:[{src:"pic5.jpg",cap:"Our first day"},{src:"pic3.jpg",cap:"Us, always"},{src:"pic6.jpg",cap:"My favourite smile"},{src:"pic1.jpg",cap:"Sweet memories"},{src:"pic2.jpg",cap:"Kovakari"},{src:"pic6.jpg",cap:"Gundu Papa"}],  letter:"My dearest Gowsi Papa,\n\nFrom the moment you came into my life, everything became softer, brighter and more beautiful. You are my calm, my joy and my favourite person.\n\nOn your birthday I want you to know that I am endlessly grateful for you. Thank you for loving me exactly as I am.\n\nForever yours 💚",
   reasons:["Your smile lights up my whole world","You make me a better person","Your heart is the kindest I know","You laugh and my day is perfect","You understand me without words","You are my peace after a long day","You believe in me, always","Every moment with you is magic","You are beautifully, wonderfully you","Because you are my Gowsi Papa 💚"],
   gift:"You are my favourite person, Gowsi Papa. Forever and always 💚",
   final:["Happy Birthday, My Gowsi Papa 💚","No matter how many birthdays come and go, I will always choose you.","Forever yours, with all my love 💚"],
@@ -243,4 +243,13 @@ addEventListener('pointermove',sp);addEventListener('touchmove',sp,{passive:true
 addEventListener('scroll',()=>{$('bar').style.width=scrollY/(document.documentElement.scrollHeight-innerHeight)*100+'%'});
 (function(){const t=new Date(C.since).getTime();function u(){const d=Math.max(0,t-Date.now());$('cnt').innerHTML=[[Math.floor(d/864e5),'DAYS'],[Math.floor(d/36e5)%24,'HOURS'],[Math.floor(d/6e4)%60,'MINS'],[Math.floor(d/1e3)%60,'SECS']].map(x=>`<div><b>${x[0]}</b><small>${x[1]}</small></div>`).join('')}u();setInterval(u,1000)})();
 $('cake').onclick=()=>{const c=$('cake');if(c.classList.contains('out'))return;c.classList.add('out');const r=c.getBoundingClientRect();heartBurst(r.left+85,r.top);confetti();$('wishMsg').textContent=`Make your wish, ${C.name}… I hope I’m in it 💚`};
+  /* ===== lock until birthday ===== */
+(function(){const T=new Date(C.since).getTime();if(Date.now()>=T)return;
+const L=document.createElement('div');
+L.style.cssText="position:fixed;inset:0;z-index:200;background:radial-gradient(circle at 50% 40%,#11664a,#06241b);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:20px;text-align:center;color:#fbf6e9";
+L.innerHTML=`<div style="font-size:3rem">🔒💚</div><h1 class="glow" style="font-size:clamp(1.8rem,7vw,3rem)">Your surprise is waiting, ${C.name}</h1><p style="font-style:italic;opacity:.85">It opens on your special day</p><div class="cnt" id="lockCnt" style="margin:10px 0 0"></div>`;
+document.body.appendChild(L);document.body.style.overflow='hidden';
+(function u(){const d=T-Date.now();if(d<=0){L.remove();document.body.style.overflow='';return}
+$('lockCnt').innerHTML=[[Math.floor(d/864e5),'DAYS'],[Math.floor(d/36e5)%24,'HOURS'],[Math.floor(d/6e4)%60,'MINS'],[Math.floor(d/1e3)%60,'SECS']].map(x=>`<div><b>${x[0]}</b><small>${x[1]}</small></div>`).join('');setTimeout(u,1000)})();
+})();
 </script></body></html>
