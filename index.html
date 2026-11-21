@@ -178,7 +178,7 @@ photos:[{src:"pic5.jpg",cap:"Our first day"},{src:"pic3.jpg",cap:"Us, always"},{
 const $=id=>document.getElementById(id);
 const G=['#3dffa0','#c8f0d8','#9caf88','#fbf6e9','#1fd17f','#7dffc0'];
 $('wTitle').textContent=`Hey ${C.name} 💚`;
-$('hSub').textContent='every second with you is a gift 💚';
+$('hSub').textContent='counting down your special day 💚';
 $('hWish').textContent=C.wish;$('storySub').textContent=C.storySub;
 $('hTitle').innerHTML=`Happy Birthday,<br>`+`${C.name}! 💚`.split(' ').map((w,i)=>`<span style="animation-delay:${.3+i*.25}s">${w}</span>`).join(' ');
 $('tl').innerHTML=C.story.map(s=>`<div class="card reveal"><div class="d">${s.date}</div><h3>${s.title}</h3><p>${s.text}</p></div>`).join('');
